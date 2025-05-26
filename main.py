@@ -3,7 +3,6 @@ import os
 import sys
 import json
 from datetime import *
-from termcolor import colored
 
 
 def add():
@@ -12,7 +11,7 @@ def add():
     except FileNotFoundError:
         file = open("tasks.json", "w+")
     except Exception as e:
-        print(colored(f"Err: {e}", "red"))
+        print(f"Err: {e}")
 
     if os.path.getsize("tasks.json") == 0:
         id = 1
@@ -81,9 +80,9 @@ def update():
             os.remove("tasks.json")
             os.rename("temp.json", "tasks.json")
         except FileNotFoundError:
-            print(colored("Are you sure you have created a task to modify it ?", "red"))
+            print("Are you sure you have created a task to modify it ?")
         except Exception as e:
-            print(colored(f"Err: {e}", "red"))
+            print(f"Err: {e}")
 
     elif update_i[0] == "update-task":
         try:
@@ -107,15 +106,15 @@ def update():
             os.remove("tasks.json")
             os.rename("temp.json", "tasks.json")
         except FileNotFoundError:
-            print(colored("Are you sure you have created a task to modify it ?","red"))
+            print("Are you sure you have created a task to modify it ?")
         except Exception as e:
-            print(colored(f"Err: {e}","red"))
+            print(f"Err: {e}")
 
 
     elif update_i == "back":
         return
     else:
-        print(colored("Invalid option!\n Please refer to the instructions", "yellow"))
+        print("Invalid option!\n Please refer to the instructions")
 
 
 def delete():
@@ -137,13 +136,13 @@ def delete():
             os.remove("tasks.json")
             os.rename("temp.json", "tasks.json")
         except FileNotFoundError:
-            print(colored("Are you sure you have created a task to modify it ?","yellow"))
+            print("Are you sure you have created a task to modify it ?")
         except Exception as e:
-            print(colored(f"Err: {e}","red"))
+            print(f"Err: {e}")
     elif del_id[0] == "back":
         return
     else:
-        print(colored("Invalid option!\n Please refer to the instructions", "yellow"))
+        print("Invalid option!\n Please refer to the instructions")
 
    
 
@@ -164,7 +163,7 @@ def listAll():
                 print("\n")        
             print("\n")
     except FileNotFoundError:
-        print(colored("You haven't created any task!","yellow"))
+        print("You haven't created any task!")
     except Exception as e:
         print(f"Err: {e}")
 
@@ -186,7 +185,7 @@ def listDone():
                     print("\n")
             print("\n")
     except FileNotFoundError:
-        print(colored("You haven't created any task!", "yellow"))
+        print("You haven't created any task!")
     except Exception as e:
         print(f"Err: {e}")
 
@@ -206,7 +205,7 @@ def listNotdone():
                     print("\n")
             print("\n")
     except FileNotFoundError:
-        print(colored("You haven't created any task!", "yellow"))
+        print("You haven't created any task!")
     except Exception as e:
         print(f"Err: {e}")
 
@@ -228,15 +227,15 @@ def listLive():
                     print("\n")
             print("\n")
     except FileNotFoundError:
-        print(colored("You haven't created any task!", "yellow"))
+        print("You haven't created any task!")
     except Exception as e:
         print(f"Err: {e}")
 
  
 
-print(colored("╔═══════════════════════════╗", "cyan"))
-print(colored("║ TaskManCLI            v1.0║", "red"))
-print(colored("╚═══════════════════════════╝", "cyan"))
+print("╔═══════════════════════════╗")
+print("║ TaskManCLI            v1.0║")
+print("╚═══════════════════════════╝")
 while True:
     print("Enter Operation to perform")
     des = input("\n1.Add Task\n2.Update Task\n3.List all tasks\n4.List completed task\n5.List incomplete task\n6.List Ongoing tasks\n7.Delete Task\n8.Exit\n")
@@ -260,7 +259,7 @@ while True:
             break
         
     except ValueError:
-        print(colored("Invalid Option!!", "yellow"))
+        print("Invalid Option!!")
         print("\n")
 
 
